@@ -1,0 +1,31 @@
+h3{
+    color : white !important;
+}
+p{
+    color: white;
+}
+.selectorsCss {
+    width: 35% !important;
+}
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.inputCss{
+    margin-top: 15px;
+}
+
+.textCss{
+    margin-top: 10px;
+}
+
+.btnCss{
+    display: block;
+    margin-top:15px;
+}
+
+.animate-me {
+    box-shadow: 8px 8px 5px #424242 !important;
+    border-radius: 10px !important;
+}

@@ -1,0 +1,53 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+    <script src = 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
+    <script src = '../src/formJsonPost.js'></script>
+	<script src = 'lib/js/jquery.mockjax.js'></script>
+    <script src="https://www.atlasestateagents.co.uk/javascript/tether.min.js"></script>
+    <script src = 'lib/js/bootstrap.min.js'></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Post Form</title>
+    <link rel="stylesheet" type="text/css" href="lib/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/css/animate.min.css"/>
+</head>
+<h3 class="col-sm-4 col-sm-offset-4 text-center">Form Json Post Welcome!</h3>
+<body style="background: url(../tests/lib/images/wood.jpg) !important;">
+    <div class="col-sm-4 col-sm-offset-4" id="integration_form"></div>
+</body>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	options = { 'url':'#', 'token':'62bb61431348e22850828a5829c4373faafe29c1', 'secret':'51a266c2844ccd5cac83d88de88d82d05358aa51', 'fields': { 'estado':['PR','SC','SP','RS'], 'nível':['Iniciante','Intermediário','Avançado','Ninja'] } };
+	$('#integration_form').postForm(options);
+});
+
+$.mockjax({
+	url: '/add',
+responseTime: 750,
+	data: function ( json ) {
+		var dataJson = JSON.parse(json);
+		console.log(dataJson);
+		if (dataJson.token ==='62bb61431348e22850828a5829c4373faafe29c1'
+                && dataJson.secret ==='51a266c2844ccd5cac83d88de88d82d05358aa51'
+				&& dataJson.lead.hasOwnProperty('name')
+				&& dataJson.lead.hasOwnProperty('estado')
+				&& dataJson.lead.hasOwnProperty('nível')
+				&& dataJson.lead.hasOwnProperty('email')
+
+
+				)
+		{
+			console.log('success');
+			return 200;
+		} else {
+			console.log('error');
+			return 500;
+		}
+
+	}
+});
+</script>
+</html>

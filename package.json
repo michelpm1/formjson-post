@@ -1,0 +1,25 @@
+{
+  "name": "form With Json Post",
+  "version": "1.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [],
+  "dependencies": {
+    "jasmine-jquery": "^2.1.1",
+    "jquery": "^3.0.0"
+  },
+  "author": "Michel",
+  "license": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "devDependencies": {
+    "eslint": "^2.13.1",
+    "eslint-plugin-mocha": "^3.0.0",
+    "jasmine-ajax": "^3.2.0"
+  }
+}
