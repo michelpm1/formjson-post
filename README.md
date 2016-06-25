@@ -1,53 +1,86 @@
 # Form Json Post
 
 ## Required
- * http-server like apache to run
+ * Jquery 2.0 +
+ * http-server like apache to run test
 
 
 ## Install
-```bash
-    npm install suiteplus/zipcode-br --save
-```
-Download the plugin 
 
+Download the plugin: 
+[Link]https://github.com/michelpm1/formjson-post/blob/master/src/formJsonPost.js
+Add the script to your project.
+```javascript
+<script src = '/patch/formJsonPost.js'></script>
+```
 ## Functionality
 
-This is a Form plugin: automatic create your form passing settings
+ Automatic create your form with a post request passing settings as a hash of parameters
 
 ## Usage
 
-Create a json object with zipBand, location and config.
+Set a document.ready() and fill your options. Select with Jquery a html attribute to put the form inside, run the function postForm(options).
+
+## Example
 
 ```javascript
- var opts = {
-        zipBand: './files/DELTA_LOG_FAIXA_LOC.txt',
-        location: './files/DELTA_LOG_LOCALIDADE.txt',
-        config: 0
-    }
+<script type="text/javascript">
+$(document).ready(function() {
+	options = { 'url':'#', 'token':'62bb61431348e22850828a5829c4373faafe29c1', 'secret':'51a266c2844ccd5cac83d88de88d82d05358aa51', 'fields': { 'estado':['PR','SC','SP','RS'], 'nível':['Iniciante','Intermediário','Avançado','Ninja'] } };
+	$('#integration_form').postForm(options);
+</script>
+});
 ```
   
 |     Param     	| Type   	| Description                                                                                                                                                                                |
 |:-------------:	|--------	|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	                                                                             |
-| opts.config   	| string 	| Set it to 0 if you want search files with separators(@) or 1 if you want the fixed.                                                                                                        |
-| opts.zipBand  	| string 	| It's the path to zipcode band if you set opts.config to 0 will be DELTA_LOG_FAIXA_LOC.TXT if 1 DNE_DLT_FAIXAS_CEP_LOCALIDADE.TXT. It can be a array of paths or only a string to the path. |
-| opts.location 	| string 	| The same as zipBand but for the file DELTA_LOG_LOCALIDADE.txt if opts.config = 0 and DNE_DLT_LOCALIDADES.TXT if opts.config = 1. Can be a array to                                         |
+| options.url   	| string 	| The url you want to post                                                                                                                                                                   |
+| options.secret  	| string 	| Here you can set your secret                                                                                                                                                               |
+| opts.token    	| string 	| Here you set your token                                                                                                                                                                    |
+| opts.fields   	| json  	| The fields parameter is where you set your adicional fields (checkbox and input accepted) you can follow the usage example to add your fields                                              |
 
 
-Call the function.parse() passing the json to parse the files.
-example:
 
+#Tests
+
+## Automatic Jasmine 
+
+Download the project:
+[Link]https://github.com/michelpm1/formjson-post
+Host the project to a http-server
+
+Using your prompt inside project folder run:
 ```javascript
-    zipcode.parse(opts);
+    npm install
+    npm install -g jasmine
+```
+For test go to the tests folder and run:
+```javascript
+    jasmine
 ```
 
-[travis-url]: https://travis-ci.org/suiteplus/zipcode-br
-[travis-image]: https://img.shields.io/travis/suiteplus/zipcode-br.svg
 
-[coveralls-url]: https://coveralls.io/r/suiteplus/zipcode-br
-[coveralls-image]: http://img.shields.io/coveralls/suiteplus/zipcode-br/master.svg
 
-[david-url]: https://david-dm.org/suiteplus/zipcode-br
-[david-image]: https://david-dm.org/suiteplus/zipcode-br.svg
+## Manual
 
-[david-url-dev]: https://david-dm.org/suiteplus/zipcode-br#info=devDependencies
-[david-image-dev]: https://david-dm.org/suiteplus/zipcode-br/dev-status.svg
+Download the project:
+[Link]https://github.com/michelpm1/formjson-post
+Host the project to a http-server
+Using your prompt inside project folder run:
+```javascript
+    npm install
+```
+
+In your browser go to:
+
+
+### http://localhost:port/formjsonpost/tests/
+
+This page is using the plugin and have a mock ajax (backend simulator) if you send a post, it respond with 200 and 500.
+for more details access:
+
+[Link]https://github.com/jakerella/jquery-mockjax
+
+
+
+obs: don't forget to host your files at a http-server like apache
