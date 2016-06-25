@@ -40,6 +40,7 @@ describe ('Tests for Form Json Post', function(){
         expect($('#secret')).toHaveValue(name);
         expect($('#secret').get(0)).toHaveValue(name);
     });
+    
     it ('check if button form is working', function () {
         let spyEvent = spyOnEvent('#formBtn', 'click');
         $('#formBtn').click();

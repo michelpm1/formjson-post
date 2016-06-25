@@ -71,7 +71,6 @@ $.fn.postForm = function(formOpt) {
             jsonData = JSON.stringify(jsonData);
 
             e.preventDefault();
-            console.log('select_link clicked');
             $.post('/add', jsonData)
                 .success(function() {
                     alert('Sent with success');
